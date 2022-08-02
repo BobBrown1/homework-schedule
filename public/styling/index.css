@@ -1,0 +1,31 @@
+body {
+    padding: 8px;
+}
+
+.error {
+    border: 2px solid #ff0033;
+    background-color: #f4bbc6;
+    padding: 12px 0px 12px 12px;
+    margin: -5px 15px 15px 0px;
+    display: none;
+    transition-duration: 500ms;
+}
+
+button {
+    padding: 8px 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+    transition-duration: 300ms;
+}
+
+button:not(:hover) {
+    background-color: white;
+    color: black;
+    transition-duration: 300ms;
+}
