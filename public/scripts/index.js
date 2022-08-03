@@ -30,7 +30,7 @@ function submit() {
     if (includeDay) {
         between += 1;
     };
-    
+
     dates = {"now": new Date(), "deadline": new Date(deadline), "between": between};
 
     if (lengthInMins) {
@@ -39,7 +39,7 @@ function submit() {
     
     if (check(length, name, dates)) {
         var modifystr = modify(length, dates);
-        alert(`${modifystr['time']}${modifystr['unit']} per day`);
+        document.getElementById("schedule").innerText = `${name} - ${modifystr['time']}${modifystr['unit']} per day`;
     } else {
         return false;
     }
