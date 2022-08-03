@@ -19,10 +19,14 @@
     <br>
     <br>
     <label>Length In: </label>
-    <input type="checkbox" id="lengthInMins" onchange="cbClick(this)">
+    <input type="checkbox" id="lengthInMins" class='length' onchange="cbClick(this)">
     <label for="lengthInMins">Minutes</label>
-    <input type="checkbox" id="lengthInHrs" onchange="cbClick(this)" checked>
+    <input type="checkbox" id="lengthInHrs" class='length' onchange="cbClick(this)" checked>
     <label for="lengthInHrs">Hours</label>
+    <br>
+    <br>
+    <input type="checkbox" id="includeDay">
+    <label for="includeDay">Include Today</label>
     <br>
     <br>
     <label for="deadline">Deadline: </label>
