@@ -8,37 +8,37 @@
     </style>
   </head>
   <body onload="load()">
-    <h2 id="schedule">New Schedule</h3>
-    <div class="error" id="error">Error Text Here</div>
-    <label for="title" autocomplete="off">Assignment Title: </label>
-    <input id="title" type="text" maxlength="20">
-    <br>
-    <br>
-    <label for="length">Estimated Length: </label>
-    <input id="length" type="number">
-    <br>
-    <br>
-    <label>Length In: </label>
-    <input type="checkbox" id="lengthInMins" class='length' onchange="cbClick(this)">
-    <label for="lengthInMins">Minutes</label>
-    <input type="checkbox" id="lengthInHrs" class='length' onchange="cbClick(this)" checked>
-    <label for="lengthInHrs">Hours</label>
-    <br>
-    <br>
-    <input type="checkbox" id="includeDay">
-    <label for="includeDay">Include Today</label>
-    <br>
-    <br>
-    <label for="deadline">Deadline: </label>
-    <input type="date" id="deadline">
-    <br>
-    <br>
-    <button onclick="submit()">Submit</button>
-    <br>
-    <br>
+    <div class="new-sched">
+      <h2 id="schedule">New Schedule</h3>
+      <div class="error" id="error">Error Text Here</div>
+      <label for="title" autocomplete="off">Assignment Title: </label>
+      <input id="title" type="text" maxlength="20">
+      <br>
+      <br>
+      <label for="length">Estimated Length: </label>
+      <input id="length" type="number">
+      <br>
+      <br>
+      <label>Length In: </label>
+      <input type="checkbox" id="lengthInMins" class='length' onchange="cbClick(this)">
+      <label for="lengthInMins">Minutes</label>
+      <input type="checkbox" id="lengthInHrs" class='length' onchange="cbClick(this)" checked>
+      <label for="lengthInHrs">Hours</label>
+      <br>
+      <br>
+      <input type="checkbox" id="includeDay">
+      <label for="includeDay">Include Today</label>
+      <br>
+      <br>
+      <label for="deadline">Deadline: </label>
+      <input type="date" id="deadline">
+      <br>
+      <br>
+      <button onclick="submit()">Submit</button>
+    </div>
 
     <div id="assignments">
-      <h2>Current Assignments</h2>
+      <h2 id="current-assignments">Current Assignments</h2>
     </div>
     <script src="./scripts/index.js"></script>
     <script>

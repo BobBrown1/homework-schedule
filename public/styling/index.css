@@ -1,5 +1,7 @@
 body {
-    padding: 8px;
+    padding: 5% 8px;
+    background-color: #ffffff;
+    text-align: center;
 }
 
 .error {
@@ -30,6 +32,11 @@ button:not(:hover) {
     transition-duration: 300ms;
 }
 
+#schedule {
+    margin-top: -2px;
+    text-align: center;
+}
+
 .set-assignment {
     font-size: 18px;
     margin-left: 3px;
@@ -38,4 +45,47 @@ button:not(:hover) {
 .set-assignment:hover {
     text-decoration: line-through;
     cursor:pointer;
+}
+
+.new-sched {
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 24px;
+    box-shadow: 0px 0px 8px 5px rgb(192, 191, 191);
+    display: inline-block;
+    vertical-align:top;
+    margin-right: 55px;
+}
+
+#assignments {
+    padding: 0px 24px;
+    height: 5%;
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 55px;
+}
+
+#assignments h2 {
+    font-size: 35px;
+}
+
+@media screen and (max-width: 750px) {
+    body {
+        text-align: center;
+    }
+    .new-sched {
+        display: block;
+        margin-right: 0px;
+    }
+    #assignments {
+        display: block;
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 270px) {
+    #assignments h2 {
+        font-size: 25px;
+    }
 }
