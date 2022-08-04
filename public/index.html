@@ -7,11 +7,11 @@
     <title>Homework Scheduler</title>
     </style>
   </head>
-  <body>
+  <body onload="load()">
     <h2 id="schedule">New Schedule</h3>
     <div class="error" id="error">Error Text Here</div>
-    <label for="name">Assignment Name: </label>
-    <input id="name" type="text" maxlength="20">
+    <label for="title" autocomplete="off">Assignment Title: </label>
+    <input id="title" type="text" maxlength="20">
     <br>
     <br>
     <label for="length">Estimated Length: </label>
@@ -34,6 +34,12 @@
     <br>
     <br>
     <button onclick="submit()">Submit</button>
+    <br>
+    <br>
+
+    <div id="assignments">
+      <h2>Current Assignments</h2>
+    </div>
     <script src="./scripts/index.js"></script>
     <script>
     </script>

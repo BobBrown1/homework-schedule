@@ -29,3 +29,13 @@ button:not(:hover) {
     color: black;
     transition-duration: 300ms;
 }
+
+.set-assignment {
+    font-size: 18px;
+    margin-left: 3px;
+}
+
+.set-assignment:hover {
+    text-decoration: line-through;
+    cursor:pointer;
+}

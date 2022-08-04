@@ -22,7 +22,7 @@ function submit() {
     lengthInMins = document.getElementById("lengthInMins").checked;
     lengthInHrs = document.getElementById("lengthInHrs").checked;
     deadline = document.getElementById("deadline").value;
-    name = document.getElementById("name").value;
+    name = document.getElementById("title").value;
     includeDay = document.getElementById("includeDay").checked;
 
     var between = Math.round((new Date(deadline)-new Date()) / (1000*60*60*24));
@@ -39,7 +39,9 @@ function submit() {
     
     if (check(length, name, dates)) {
         var modifystr = modify(length, dates);
-        document.getElementById("schedule").innerText = `${name} - ${modifystr['time']}${modifystr['unit']} per day`;
+        if (setAssignment(name, modifystr['time'] + modifystr['unit'] + " per day")) {
+            location.reload();
+        }
     } else {
         return false;
     }
@@ -77,10 +79,48 @@ function showError(message) {
     document.getElementById("error").style.display = "block";
 }
 
+function setAssignment(name, time) {
+    if (localStorage.getItem("assignments") === null) {
+        localStorage.setItem("assignments", JSON.stringify([{'name': name, 'time': time}]))
+        return true
+    } else {
+        let assignments = JSON.parse(localStorage.getItem("assignments"));
+        assignments.push({'name': name, 'time': time});
+        localStorage.setItem('assignments', JSON.stringify(assignments));
+    }
+    return true
+}
+
 function cbClick(obj) {
     var cbs = document.getElementsByClassName("length");
     for (var i = 0; i < cbs.length; i++) {
         cbs[i].checked = false;
     }
     obj.checked = true;
+}
+
+// function removeAssignment(num) {
+//     let assignments = JSON.parse(localStorage.getItem("assignments"));
+//     assignments.splice(num);
+//     localStorage.setItem("assignments", JSON.stringify(assignments));
+//     location.reload();
+// } 
+
+
+function load() {
+    if (localStorage.getItem("assignments") !== null) {
+        let assignments = JSON.parse(localStorage.getItem("assignments"));
+        for (var i = 0; i < assignments.length; i++) {
+            let element = document.createElement("p");
+            element.classList.add("set-assignment");
+            element.onclick = function(i) {
+                let assignments = JSON.parse(localStorage.getItem("assignments"));
+                assignments.splice(i);
+                localStorage.setItem("assignments", JSON.stringify(assignments));
+                location.reload();
+            }
+            element.textContent = `${assignments[i]['name']} - ${assignments[i]['time']}`;
+            document.getElementById("assignments").appendChild(element);
+        }
+    } 
 }
