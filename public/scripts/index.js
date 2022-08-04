@@ -99,12 +99,13 @@ function cbClick(obj) {
     obj.checked = true;
 }
 
-// function removeAssignment(num) {
-//     let assignments = JSON.parse(localStorage.getItem("assignments"));
-//     assignments.splice(num);
-//     localStorage.setItem("assignments", JSON.stringify(assignments));
-//     location.reload();
-// } 
+function removeAssignment(num) {
+    console.log(num)
+    let assignments = JSON.parse(localStorage.getItem("assignments"));
+    assignments.splice(num, 1);
+    localStorage.setItem("assignments", JSON.stringify(assignments));
+    location.reload();
+} 
 
 
 function load() {
@@ -113,12 +114,7 @@ function load() {
         for (var i = 0; i < assignments.length; i++) {
             let element = document.createElement("p");
             element.classList.add("set-assignment");
-            element.onclick = function(i) {
-                let assignments = JSON.parse(localStorage.getItem("assignments"));
-                assignments.splice(i);
-                localStorage.setItem("assignments", JSON.stringify(assignments));
-                location.reload();
-            }
+            element.setAttribute('onclick', `removeAssignment(${i})`)
             element.textContent = `${assignments[i]['name']} - ${assignments[i]['time']}`;
             document.getElementById("assignments").appendChild(element);
         }
