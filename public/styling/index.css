@@ -13,6 +13,18 @@ body {
     transition-duration: 500ms;
 }
 
+input[type='text'] {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+input[type='number'] {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
 button {
     padding: 8px 20px;
     border: 2px solid black;
@@ -59,7 +71,7 @@ button:not(:hover) {
 }
 
 #assignments {
-    padding: 0px 24px;
+    padding: 5px 32px;
     height: 5%;
     vertical-align: top;
     display: inline-block;
