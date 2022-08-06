@@ -50,13 +50,18 @@ button:not(:hover) {
 }
 
 .set-assignment {
-    font-size: 18px;
+    font-size: 24px;
     margin-left: 3px;
+    text-align: left;
 }
 
-.set-assignment:hover {
-    text-decoration: line-through;
+.set-assignment input[type="checkbox"] {
+    height:1.5em;
+    width:1.5em;
     cursor:pointer;
+    position:relative;
+    border-radius:4em;
+    vertical-align: bottom;
 }
 
 .new-sched {
@@ -70,7 +75,12 @@ button:not(:hover) {
     margin-right: 55px;
 }
 
+.checked {
+    text-decoration: line-through;
+}
+
 #assignments {
+    border: .5px solid black;
     padding: 5px 32px;
     height: 5%;
     vertical-align: top;
@@ -80,6 +90,7 @@ button:not(:hover) {
 
 #assignments h2 {
     font-size: 35px;
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 750px) {

@@ -100,12 +100,16 @@ function cbClick(obj) {
 }
 
 function removeAssignment(num) {
-    console.log(num)
     let assignments = JSON.parse(localStorage.getItem("assignments"));
     assignments.splice(num, 1);
     localStorage.setItem("assignments", JSON.stringify(assignments));
     location.reload();
-} 
+}
+
+function markAssignment(num) {
+    // document.getElementById(`cb${num}`).checked = !document.getElementById(`cb${num}`).checked;
+    document.getElementById(`${num}`).classList.toggle("checked");
+}
 
 
 function load() {
@@ -114,8 +118,8 @@ function load() {
         for (var i = 0; i < assignments.length; i++) {
             let element = document.createElement("p");
             element.classList.add("set-assignment");
-            element.setAttribute('onclick', `removeAssignment(${i})`)
-            element.textContent = `${assignments[i]['name']} - ${assignments[i]['time']}`;
+            element.id = `${i}`;
+            element.innerHTML = `<input type='checkbox' id='cb${i}' onclick='markAssignment("${i}")' /> <span></span> ${assignments[i]['name']} - ${assignments[i]['time']}`;
             document.getElementById("assignments").appendChild(element);
         }
     } 
