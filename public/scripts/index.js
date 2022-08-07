@@ -81,11 +81,11 @@ function showError(message) {
 
 function setAssignment(name, time) {
     if (localStorage.getItem("assignments") === null) {
-        localStorage.setItem("assignments", JSON.stringify([{'name': name, 'time': time}]))
+        localStorage.setItem("assignments", JSON.stringify([{'name': name, 'time': time, 'checked': false}]))
         return true
     } else {
         let assignments = JSON.parse(localStorage.getItem("assignments"));
-        assignments.push({'name': name, 'time': time});
+        assignments.push({'name': name, 'time': time, 'checked': false});
         localStorage.setItem('assignments', JSON.stringify(assignments));
     }
     return true
@@ -107,8 +107,10 @@ function removeAssignment(num) {
 }
 
 function markAssignment(num) {
-    // document.getElementById(`cb${num}`).checked = !document.getElementById(`cb${num}`).checked;
     document.getElementById(`${num}`).classList.toggle("checked");
+    let assignments = JSON.parse(localStorage.getItem("assignments"));
+    assignments[num]['checked'] = !assignments[num]['checked'];
+    localStorage.setItem("assignments", JSON.stringify(assignments));
 }
 
 
@@ -121,6 +123,25 @@ function load() {
             element.id = `${i}`;
             element.innerHTML = `<input type='checkbox' id='cb${i}' onclick='markAssignment("${i}")' /> <span></span> ${assignments[i]['name']} - ${assignments[i]['time']}`;
             document.getElementById("assignments").appendChild(element);
+            console.log(assignments[i])
+            if (assignments[i]['checked']) {
+                document.getElementById(`cb${i}`).click();
+                let assignments = JSON.parse(localStorage.getItem("assignments"));
+                assignments[i]['checked'] = !assignments[i]['checked'];
+                localStorage.setItem("assignments", JSON.stringify(assignments));
+            }
         }
     } 
+}
+
+function removeChecked() {
+    if (localStorage.getItem("assignments") !== null) {
+        let assignments = JSON.parse(localStorage.getItem("assignments"));
+        for (var i = 0; i < assignments.length; i++) {
+            if (assignments[i]['checked']) {
+                assignments.splice(i, 1);
+            }
+        }
+        localStorage.setItem("assignments", JSON.stringify(assignments));
+    }
 }

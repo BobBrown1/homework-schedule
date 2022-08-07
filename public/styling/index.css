@@ -1,6 +1,6 @@
 body {
     padding: 5% 8px;
-    background-color: #ffffff;
+    background-color: white;
     text-align: center;
 }
 
@@ -53,6 +53,11 @@ button:not(:hover) {
     font-size: 24px;
     margin-left: 3px;
     text-align: left;
+    margin-bottom: 0px;
+}
+
+.remove {
+    margin: 0 8px;
 }
 
 .set-assignment input[type="checkbox"] {
@@ -62,6 +67,7 @@ button:not(:hover) {
     position:relative;
     border-radius:4em;
     vertical-align: bottom;
+    margin-right: 8px;
 }
 
 .new-sched {
@@ -69,7 +75,7 @@ button:not(:hover) {
     border-radius: 10px;
     background-color: white;
     padding: 24px;
-    box-shadow: 0px 0px 8px 5px rgb(192, 191, 191);
+    box-shadow: 0px 0px 15px 5px rgb(204, 204, 204);
     display: inline-block;
     vertical-align:top;
     margin-right: 55px;
@@ -81,7 +87,7 @@ button:not(:hover) {
 
 #assignments {
     border: .5px solid black;
-    padding: 5px 32px;
+    padding: 5px 32px 25px 32px;
     height: 5%;
     vertical-align: top;
     display: inline-block;
@@ -93,17 +99,19 @@ button:not(:hover) {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 843px) {
     body {
         text-align: center;
     }
     .new-sched {
         display: block;
         margin-right: 0px;
+        margin-top: -5px;
     }
     #assignments {
         display: block;
         margin-left: 0px;
+        margin-top: 25px;
     }
 }
 
