@@ -120,3 +120,9 @@ button:not(:hover) {
         font-size: 25px;
     }
 }
+
+@media screen and (max-width: 395px) {
+    #assignments button:not(:last-child) {
+        margin-bottom: 15px;
+    }
+}
